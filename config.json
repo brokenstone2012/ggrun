@@ -34,7 +34,7 @@
 			"streamSettings": {
 				"network": "grpc",
 				"grpcSettings": {
-                                        "serviceName": "gun_service"
+                                        "serviceName": "VLESS_WSPATH"
                                 }
 			}
 		}
