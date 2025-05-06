@@ -32,10 +32,10 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "VLESS_WSPATH"
-				}
+				"network": "grpc",
+				"grpcSettings": {
+                                        "serviceName": "gun_service"
+                                }
 			}
 		}
 	],
