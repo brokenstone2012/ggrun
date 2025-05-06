@@ -32,9 +32,9 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "grpc",
-				"grpcSettings": {
-                                        "serviceName": "VLESS_WSPATH"
+				"network": "ws",
+				"wsSettings": {
+                                        "path": "VLESS_WSPATH"
                                 }
 			}
 		}
