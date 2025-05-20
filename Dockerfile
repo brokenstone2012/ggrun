@@ -12,7 +12,7 @@ RUN apk update && apk add --no-cache supervisor wget unzip curl
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY nginx.conf /etc/nginx/nginx.conf
-COPT openp2p /usr/bin/openp2p
+COPY openp2p /usr/bin/openp2p
 
 RUN mkdir /etc/v2ray /usr/local/v2ray
 COPY config.json /etc/v2ray/
