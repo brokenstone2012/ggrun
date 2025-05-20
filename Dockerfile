@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM nginx:mainline-alpine-slim
 MAINTAINER ifeng <https://t.me/HiaiFeng>
 EXPOSE 8080
 USER root
@@ -11,7 +11,7 @@ RUN apk update && apk add --no-cache supervisor wget unzip curl
 #ENV VLESS_WSPATH /20250112
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-#COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /etc/v2ray /usr/local/v2ray
 COPY config.json /etc/v2ray/

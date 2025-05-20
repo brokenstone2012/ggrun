@@ -6,7 +6,7 @@
 	},
 	"inbounds": [
 		{
-			"port": 8080,
+			"port": 10000,
 			"listen": "127.0.0.1",
 			"protocol": "vless",
 			"settings": {
@@ -18,7 +18,7 @@
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-					"path": "/"
+					"path": "/v2"
 				}
 			}
 		}
