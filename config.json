@@ -4,38 +4,22 @@
 		"error": "/dev/null",
 		"loglevel": "warning"
 	},
-	"inbounds": [{
-			"port": 10000,
-			"listen": "127.0.0.1",
-			"protocol": "vmess",
-			"settings": {
-				"clients": [{
-					"id": "UUID",
-					"alterId": 0
-				}]
-			},
-			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "VMESS_WSPATH"
-				}
-			}
-		},
+	"inbounds": [
 		{
-			"port": 20000,
+			"port": 8080,
 			"listen": "127.0.0.1",
 			"protocol": "vless",
 			"settings": {
 				"clients": [{
-					"id": "UUID"
+					"id": "af2c9193-a3a2-4afb-b409-ec87963c9896"
 				}],
 				"decryption": "none"
 			},
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-                                        "path": "VLESS_WSPATH"
-                                }
+					"path": "/"
+				}
 			}
 		}
 	],

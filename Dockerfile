@@ -1,4 +1,4 @@
-FROM nginx:mainline-alpine-slim
+FROM alpine:latest
 MAINTAINER ifeng <https://t.me/HiaiFeng>
 EXPOSE 8080
 USER root
@@ -6,12 +6,12 @@ USER root
 RUN apk update && apk add --no-cache supervisor wget unzip curl
 
 # 定义 UUID 及 伪装路径,请自行修改.(注意:伪装路径以 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-ENV UUID af2c9193-a3a2-4afb-b409-ec87963c9896
-ENV VMESS_WSPATH /20250111
-ENV VLESS_WSPATH /20250112
+#ENV UUID af2c9193-a3a2-4afb-b409-ec87963c9896
+#ENV VMESS_WSPATH /20250111
+#ENV VLESS_WSPATH /20250112
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /etc/v2ray /usr/local/v2ray
 COPY config.json /etc/v2ray/
@@ -22,6 +22,8 @@ RUN wget -q -O /tmp/v2ray-linux-64.zip https://github.com/v2fly/v2ray-core/relea
     unzip -d /usr/local/v2ray /tmp/v2ray-linux-64.zip v2ray  && \
     wget -q -O /usr/local/v2ray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat && \
     wget -q -O /usr/local/v2ray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat && \
+    wget -q -O /etc/v2ray/cloudflared https://github.com/cloudflare/cloudflared/releases/download/2025.4.2/cloudflared-linux-amd64 && \
+    chmod a+x /etc/v2ray/cloudflared && \
     chmod a+x /usr/local/v2ray/entrypoint.sh && \
     apk del wget unzip  && \
     rm -rf /tmp/v2ray-linux-64.zip && \
