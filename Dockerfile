@@ -22,8 +22,8 @@ RUN wget -q -O /tmp/v2ray-linux-64.zip https://github.com/v2fly/v2ray-core/relea
     unzip -d /usr/local/v2ray /tmp/v2ray-linux-64.zip v2ray  && \
     wget -q -O /usr/local/v2ray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat && \
     wget -q -O /usr/local/v2ray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat && \
-    wget -q -O /etc/v2ray/cloudflared https://github.com/cloudflare/cloudflared/releases/download/2025.4.2/cloudflared-linux-amd64 && \
-    chmod a+x /etc/v2ray/cloudflared && \
+    curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/bin/cloudflared && \
+    chmod a+x /usr/bin/cloudflared && \
     chmod a+x /usr/local/v2ray/entrypoint.sh && \
     apk del wget unzip  && \
     rm -rf /tmp/v2ray-linux-64.zip && \
